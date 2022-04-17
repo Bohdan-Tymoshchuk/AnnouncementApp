@@ -17,21 +17,18 @@ namespace AnnouncementApp.Controllers
         }
 
         [HttpPost]
-        [Route("add")]
         public async Task<AnnouncementDto> Create(AnnouncementForAddDto announcement)
         {
             return await _announcementService.AddAsync(announcement);
         }
 
         [HttpPut]
-        [Route("edit")]
         public async Task<AnnouncementDto> Edit(AnnouncementDto announcement)
         {
             return await _announcementService.EditAsync(announcement);
         }
 
-        [HttpDelete]
-        [Route("delete/{id}")]
+        [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
             await _announcementService.DeleteAsync(id);
@@ -48,7 +45,5 @@ namespace AnnouncementApp.Controllers
         {
             return await _announcementService.GetAnnouncementDetails(id);
         }
-
-
     }
 }
